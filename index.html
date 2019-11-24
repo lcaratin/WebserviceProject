@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper red lighten-1">
+            <a style="padding-left: 10px;" id="selected_type" class="brand-logo">Produtos</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a onclick="Controller.setAPI('Product')">Produtos</a></li>
+                <li><a onclick="Controller.setAPI('Pricebook')">Listas de Preço</a></li>
+                <li><a onclick="Controller.setAPI('PricebookEntry')">Entrada de Preço</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="row">
+        <div class="col s12">
+            <ul class="tabs">
+                <li class="tab col s6"><a onclick="Controller.select()" class="active" href="#content_1">Registros</a></li>
+                <li class="tab col s6"><a onclick="Controller.buildInsertTemplate()" href="#content_2">Inserção</a></li>
+            </ul>
+        </div>
+        <div id="content_1" class="col s12"> </div>
+        <div id="content_2" class="col s12"> </div>
+    </div>
+    
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/controller.js"></script>
+    
+    
+    <script>
+        window.onload = () => {
+            $(document).ready(function(){
+                $('.tabs').tabs();
+            });
+
+            Controller.setAPI('Product');
+        }
+    </script>
+</body>
+</html>
